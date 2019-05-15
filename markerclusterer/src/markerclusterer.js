@@ -1194,6 +1194,7 @@ ClusterIcon.prototype.useStyle = function() {
   index = Math.min(this.styles_.length - 1, index);
   var style = this.styles_[index];
   this.url_ = style['url'];
+  this.backgroundColor_ = style['backgroundColor'];
   this.height_ = style['height'];
   this.width_ = style['width'];
   this.textColor_ = style['textColor'];
@@ -1248,10 +1249,12 @@ ClusterIcon.prototype.createCss = function(pos) {
 
   var txtColor = this.textColor_ ? this.textColor_ : 'black';
   var txtSize = this.textSize_ ? this.textSize_ : 11;
+  var backgroundColor = this.backgroundColor_ ? this.backgroundColor_ : 'rgba(255, 255, 255, 0);';
 
-  style.push('cursor:pointer; top:' + pos.y + 'px; left:' +
+  style.push('border-radius:50%; cursor:pointer; top:' + pos.y + 'px; left:' +
       pos.x + 'px; color:' + txtColor + '; position:absolute; font-size:' +
-      txtSize + 'px; font-family:Arial,sans-serif; font-weight:bold');
+      txtSize + 'px; font-family:Arial,sans-serif; font-weight:bold; background-color:' + backgroundColor + ';');
+
   return style.join('');
 };
 
