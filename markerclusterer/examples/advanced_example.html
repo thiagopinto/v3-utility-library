@@ -42,9 +42,11 @@
       }
     </style>
 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script src="../src/data.json" type="text/javascript"></script>
-    <script type="text/javascript" src="../src/markerclusterer.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="../src/data.json"></script>
+<script type="text/javascript" src="../src/data.1.json"></script>
+<script type="text/javascript" src="../src/data.2.json"></script>
+<script type="text/javascript" src="../src/markerclusterer.js"></script>
 
     <script type="text/javascript">
       var styles = [[{
@@ -125,9 +127,10 @@
         var markerImage = new google.maps.MarkerImage(imageUrl,
           new google.maps.Size(24, 32));
 
-        for (var i = 0; i < 1000; ++i) {
-          var latLng = new google.maps.LatLng(data.photos[i].latitude,
-              data.photos[i].longitude)
+        for (var i = 0; i < 500; ++i) {
+          var latitude = data.photos[i].latitude;
+          var longitude = data.photos[i].longitude;
+          var latLng = new google.maps.LatLng(latitude, longitude);
           var marker = new google.maps.Marker({
            position: latLng,
            draggable: true,
